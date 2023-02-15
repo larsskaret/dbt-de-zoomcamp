@@ -19,6 +19,11 @@ sources:
            # error_after: {count: 6, period: hour}
 
 models:
+    - name: stg_fhv2019_data
+      description: >
+        For Hire Vehicles taxi trips. 
+        The records were collected and provided to the NYC Taxi and Limousine Commission (TLC) by
+        technology service providers. 
     - name: stg_green_tripdata
       description: >
         Trip made by green taxis, also known as boro taxis and street-hail liveries.
