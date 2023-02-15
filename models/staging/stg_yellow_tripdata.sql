@@ -3,7 +3,12 @@
 with tripdata as 
 (
   select *,
-    row_number() over(partition by vendorid, tpep_pickup_datetime) as rn
+    row_number() over(
+        partition by 
+            vendorid, tpep_pickup_datetime 
+        order by --to get consistent results
+            fare_amount,pulocationid,tpep_pickup_datetime, tpep_dropoff_datetime 
+    ) as rn 
   from {{ source('staging','yellow_tripdata') }}
   where vendorid is not null 
 )
